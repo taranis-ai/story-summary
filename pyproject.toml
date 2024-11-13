@@ -1,0 +1,48 @@
+[project]
+name = "taranis_story_summary"
+description = "Summary Bot for Taranis AI"
+readme = "README.md"
+license = {file = "LICENSE.md"}
+maintainers = [{ name = "AIT", email = "stefania.sava@ait.ac.at" }]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "networkx",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.urls]
+"Source Code" = "https://github.com/taranis-ai/story_summary"
+
+[build-system]
+requires = [
+    "setuptools>=45",
+    "setuptools_scm[toml]>=6.2",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[tool.setuptools]
+packages = ["story_summary"]
+
+[tool.ruff]
+line-length = 142
+target-version = "py312"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore:.*_app_ctx_stack.*:DeprecationWarning",
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning"
+]
