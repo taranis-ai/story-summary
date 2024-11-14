@@ -18,7 +18,7 @@ dependencies = [
 dynamic = ["version"]
 
 [project.optional-dependencies]
-dev = ["pytest", "ruff"]
+dev = ["ruff"]
 
 [project.urls]
 "Source Code" = "https://github.com/taranis-ai/story_summary"
@@ -39,10 +39,3 @@ packages = ["story_summary"]
 [tool.ruff]
 line-length = 142
 target-version = "py312"
-
-[tool.pytest.ini_options]
-filterwarnings = [
-    "ignore:.*_app_ctx_stack.*:DeprecationWarning",
-    "ignore::DeprecationWarning",
-    "ignore::UserWarning"
-]

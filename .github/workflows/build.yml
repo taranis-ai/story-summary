@@ -15,8 +15,8 @@ permissions:
   id-token: write
 
 jobs:
-  test:
-    name: Run Tests with pytest
+  build_wheel:
+    name: Build Python Package
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -39,20 +39,6 @@ jobs:
 
       - name: Lint with ruff
         run: ruff check --output-format=github .
-
-      - name: Run Tests
-        run: pytest
-
-  build_wheel:
-    name: Build Python Package
-    runs-on: ubuntu-22.04
-    needs: test
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
 
       - name: Build Package
         run: |
